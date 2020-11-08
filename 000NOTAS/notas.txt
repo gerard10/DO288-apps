@@ -1,0 +1,12 @@
+domino de laborotaioes apps.eu45.prod.nextcle.com
+conosla opoensifhit  https://consolo-openshift-console.apps.eu45.prod.nextcle.com
+
+[student@workstation ~]$ grep RHT_OCP4_* /usr/local/etc/ocp4.config 
+RHT_OCP4_MASTER_API=https://api.eu45.prod.nextcle.com:6443
+RHT_OCP4_WILDCARD_DOMAIN=apps.eu45.prod.nextcle.com
+RHT_OCP4_NEXUS_SERVER=nexus-common.apps.eu45.prod.nextcle.com
+RHT_OCP4_DEV_USER=gerard10
+RHT_OCP4_DEV_PASSWORD=4738adc486af4fcaa5d9
+RHT_OCP4_GITHUB_USER=gerard10
+RHT_OCP4_QUAY_USER=gerard10
+
