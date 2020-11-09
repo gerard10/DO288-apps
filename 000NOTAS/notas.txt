@@ -1,3 +1,6 @@
+#source con las variables de entorno
+source /usr/local/etc/ocp4.config
+
 RHT_OCP4_MASTER_API=https://api.eu45.prod.nextcle.com:6443
 RHT_OCP4_WILDCARD_DOMAIN=apps.eu45.prod.nextcle.com
 RHT_OCP4_NEXUS_SERVER=nexus-common.apps.eu45.prod.nextcle.com
@@ -5,3 +8,22 @@ RHT_OCP4_DEV_USER=gerard10
 RHT_OCP4_DEV_PASSWORD=4738adc486af4fcaa5d9
 RHT_OCP4_GITHUB_USER=gerard10
 RHT_OCP4_QUAY_USER=gerard10
+
+
+
+se clona directamente en el homeo del usuario
+git clone https://github.com/gerard10/DO288-apps
+cd DO288-apps
+git status
+
+
+
+
+1.5 ejercicioGuiado
+lab docker-build start
+cd DO288-apps
+git checkout master
+# creamos una rama
+git checkout -b docker-build
+#
+git push -u origin docker-build
