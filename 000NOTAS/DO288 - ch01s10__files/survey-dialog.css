@@ -1,0 +1,12 @@
+#survey-dialog .inline {
+  margin-top: 15px; }
+  #survey-dialog .inline .form-group button, #survey-dialog .inline .take-me {
+    margin-right: 4px; }
+  #survey-dialog .inline .form-group.opt-out {
+    margin-left: 10px; }
+    #survey-dialog .inline .form-group.opt-out label {
+      font-weight: normal;
+      margin-left: 3px; }
+
+
+/*# sourceMappingURL=survey-dialog.bundle.a350c2034c8798e24135.css.map*/

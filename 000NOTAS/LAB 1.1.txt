@@ -1,0 +1,47 @@
+ Navegue a su clon local del repositorio Git DO288-apps y cree una nueva bifurcación denominada source-build de la bifurcación maestra. Implemente la aplicación en la carpeta nodejs-helloworld en el proyecto youruser-source-build del clúster OpenShift.
+
+    Prepare el entorno del trabajo de laboratorio.
+
+    [student@workstation ~]$ source /usr/local/etc/ocp4.config
+
+    Inicie sesión en OpenShift y cree el proyecto:
+
+    [student@workstation ~]$ oc login -u ${RHT_OCP4_DEV_USER} \
+    > -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+    Login successful
+    ...output omitted...
+    [student@workstation ~]$ oc new-project ${RHT_OCP4_DEV_USER}-source-build
+    ...output omitted...
+
+    Ingrese su clon local del repositorio Git DO288-apps y extraiga la bifurcación master (maestra) del repositorio del curso para asegurarse de iniciar este ejercicio desde un estado bueno conocido:
+
+    [student@workstation ~]$ cd DO288-apps
+    [student@workstation DO288-apps]$ git checkout master
+    ...output omitted...
+
+    Cree una nueva bifurcación donde pueda guardar los cambios que realice durante este ejercicio:
+
+    [student@workstation DO288-apps]$ git checkout -b source-build
+    Switched to a new branch 'source-build'
+    [student@workstation DO288-apps]$ git push -u origin source-build
+    ...output omitted...
+    * [new branch]      source-build -> source-build
+    Branch source-build set up to track remote branch source-build from origin.
+
+    Cree una nueva aplicación desde las fuentes del repositorio Git. Asígnele el nombre greet a la aplicación. Use la opción --build-env con el comando oc new-app --as-deployment-config para definir la variable del entorno de compilación con la URL de los módulos npm.
+
+    Copie o ejecute el comando del script oc-new-app.sh en la carpeta /home/student/DO288/labs/source-build:
+
+    [student@workstation DO288-apps]$ oc new-app --as-deployment-config --name greet \
+    > --build-env npm_config_registry=\
+    > http://${RHT_OCP4_NEXUS_SERVER}/repository/nodejs \
+    > nodejs:12~https://github.com/${RHT_OCP4_GITHUB_USER}/DO288-apps#source-build \
+    > --context-dir nodejs-helloworld
+    ...output omitted...
+    --> Creating resources ...
+        imagestream.image.openshift.io "greet" created
+        buildconfig.build.openshift.io "greet" created
+        deploymentconfig.apps.openshift.io "greet" created
+        service "greet" created
+    --> Success
+    ...output omitted...
