@@ -1,9 +1,0 @@
-i=$(grep 'Language=' /var/lib/AccountsService/users/${USER} \
-| sed 's/Language=//')
-if [ "$i" != "" ]; then
-export LANG=$i
-fi
-
-
-
-#localectl set-locale LANG=es_ES.utf8
